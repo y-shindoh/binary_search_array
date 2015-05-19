@@ -12,11 +12,15 @@
 #include <cassert>
 #include <vector>
 
-namespace ys {
+namespace ys
+{
 	/**
 	 * @class	配列で表現した平衡二分探索木 (binary search array)
 	 * @note	親子へのポインタを持たず、インデックスの計算で代替する。
 	 * @note	テンプレートの型 @a TYPE は木が保持するポインタが指す型。
+	 * @note	ソート済み配列に対する二分探索より、
+				配列で表現した平衡二分探索木の方が高速に探索できる。
+				(see http://cglab.ca/~morin/misc/arraylayout/ )
 	 */
 	template<typename TYPE>
 	class BinarySearchArray
