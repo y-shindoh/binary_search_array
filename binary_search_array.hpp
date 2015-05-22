@@ -71,8 +71,8 @@ namespace ys
 			}
 
 		/**
-		 * 降順ソート済み配列から平衡二分探索木を構築
-		 * @param[in]	input	処理対象の降順ソート済み配列
+		 * 昇順ソート済み配列から平衡二分探索木を構築
+		 * @param[in]	input	処理対象の昇順ソート済み配列
 		 * @param[in]	length	引数 @a input の長さ
 		 * @note	計算量はO(n)。ただしnは引数 @a length に準じる。
 		 */
