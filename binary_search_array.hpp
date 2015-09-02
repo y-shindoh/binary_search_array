@@ -33,7 +33,7 @@ namespace ys
 		/**
 		 * 探索に用いる比較関数
 		 * @note	2つの引数が等しい時は0を、
-		 			第1引数が大きい場合は負の数を、そうでない場合は正の数を返す。
+					第1引数が大きい場合は負の数を、そうでない場合は正の数を返す。
 		 */
 		int (* compare_)(const TYPE&, const TYPE&);
 
@@ -72,7 +72,7 @@ namespace ys
 
 		/**
 		 * 昇順ソート済み配列から平衡二分探索木を構築
-		 * @param[in]	input	処理対象の昇順ソート済み配列
+		 * @param[in]	input	処理対象の昇順ソート済み配列 (重複はないものとする)
 		 * @param[in]	length	引数 @a input の長さ
 		 * @note	計算量はO(n)。ただしnは引数 @a length に準じる。
 		 */
