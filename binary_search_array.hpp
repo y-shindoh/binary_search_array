@@ -50,10 +50,10 @@ namespace ys
 						  size_t s,
 						  size_t e)
 			{
-				size_t c = (s + e) / 2;
+				size_t c = (s + e + 1) / 2;
 				tree_[i] = input[c];
-				if (s < c) recursive_prepare(input, i * 2, s, c - 1);
-				if (c < e) recursive_prepare(input, i * 2 + 1, c + 1, e);
+				if (s < c) recursive_prepare(input, i * 2 + 1, s, c - 1);
+				if (c < e) recursive_prepare(input, i * 2 + 2, c + 1, e);
 			}
 
 	public:
@@ -88,7 +88,7 @@ namespace ys
 				tree_.clear();
 				tree_.resize(l, invalid_);
 
-				recursive_prepare(input, 1, 0, length - 1);
+				recursive_prepare(input, 0, 0, length - 1);
 			}
 
 		/**
@@ -103,14 +103,14 @@ namespace ys
 			{
 				assert(compare_);
 
-				size_t i(1);
+				size_t i(0);
 				const size_t l = tree_.size();
 				int v;
 
 				while (i < l && tree_[i] != invalid_) {
 					v = compare_(data, tree_[i]);
-					if (v < 0) i = i * 2;
-					else if (0 < v) i = i * 2 + 1;
+					if (v < 0) i = i * 2 + 1;
+					else if (0 < v) i = i * 2 + 2;
 					else return i;
 				}
 
@@ -119,13 +119,12 @@ namespace ys
 
 		/**
 		 * 二分探索木の配列の要素を取得
-		 * @param[in]	i	要素のインデックス (1始まり)
+		 * @param[in]	i	要素のインデックス (0始まり)
 		 * @return	配列の要素
 		 */
 		TYPE
 		get(size_t i) const
 			{
-				assert(0 < i);
 				assert(i < tree_.size());
 
 				return tree_[i];
@@ -133,7 +132,7 @@ namespace ys
 
 		/**
 		 * 二分探索木の配列の長さを取得
-		 * @return	配列の長さ (ダミー要素1つ分を含む長さ)
+		 * @return	配列の長さ
 		 */
 		size_t
 		size() const

@@ -38,7 +38,7 @@ print(ys::BinarySearchArray<int>* tree,
 	const size_t l = tree->size();
 	int v;
 
-	for (size_t i(1); i < l; ++i) {
+	for (size_t i(0); i < l; ++i) {
 		if (1 < i) std::printf(", ");
 		v = tree->get(i);
 		if (invalid != v) std::printf("[%lu] %d", i, v);
