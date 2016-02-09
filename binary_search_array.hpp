@@ -50,7 +50,7 @@ namespace ys
 						  size_t s,
 						  size_t e)
 			{
-				size_t c = (s + e + 1) / 2;
+				size_t c = (s + e) / 2;
 				tree_[i] = input[c];
 				if (s < c) recursive_prepare(input, i * 2, s, c - 1);
 				if (c < e) recursive_prepare(input, i * 2 + 1, c + 1, e);
